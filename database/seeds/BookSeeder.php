@@ -16,6 +16,6 @@ class BookSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Book::truncate();
-        //factory(Book::class, 30)->create();
+        factory(Book::class, 30)->create();
     }
 }

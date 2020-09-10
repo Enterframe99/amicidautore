@@ -21,7 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bd891dd4-ed24-48cd-b2c6-b40ce8dd87c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/BookSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BookSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +201,7 @@
       <workItem from="1599205217346" duration="3664000" />
       <workItem from="1599551660323" duration="5663000" />
       <workItem from="1599640820633" duration="5818000" />
-      <workItem from="1599724526618" duration="8617000" />
+      <workItem from="1599724526618" duration="11744000" />
     </task>
     <task id="LOCAL-00001" summary="10 setttembre">
       <created>1599744804294</created>
@@ -207,7 +210,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599744804294</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="10 setttembre">
+      <created>1599745098491</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599745098491</updated>
+    </task>
+    <task id="LOCAL-00003" summary="10 setttembre">
+      <created>1599745107050</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599745107050</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,10 +259,14 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1296" y="236" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599578532345" />
-    <state x="-1415" y="54" key="CommitChangelistDialog2" timestamp="1599744799338">
+    <state x="-1415" y="54" key="CommitChangelistDialog2" timestamp="1599745106362">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="-1415" y="54" key="CommitChangelistDialog2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599744799338" />
+    <state x="-1415" y="54" key="CommitChangelistDialog2/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599745106362" />
+    <state x="-1856" y="65" width="1736" height="896" key="DiffContextDialog" timestamp="1599745146692">
+      <screen x="-1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="-1856" y="65" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599745146692" />
     <state x="-1233" y="219" key="FileChooserDialogImpl" timestamp="1599209810623">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
