@@ -5,6 +5,8 @@
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,16 @@ use Illuminate\Support\Str;
 | model instances for testing / seeding your application's database.
 |
 */
+
+
+$query = 'INSERT INTO users (name, email, password)';
+$query .=' values(:name, :email, :password)';
+
+DB::statement($query, [
+    'name' => 'Claudio',
+    'email' => 'wm@kmz.it',
+    'password' => Hash::make('gandhi69')
+]);
 
 $factory->define(User::class, function (Faker $faker) {
     return [

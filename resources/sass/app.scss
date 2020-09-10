@@ -1,1 +1,15 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.c {
+    min-height: 100vh;
+    background-size: cover !important;
+    background: url(https://i.postimg.cc/ZnHTP71s/aircraft-airplane-boat-1575833.jpg);
+}
