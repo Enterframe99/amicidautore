@@ -22,15 +22,15 @@
 <body>
 <div id="app">
 
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
 
-                <div class="col-4 offset-4 text-center">
+                <div class="col-2">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img src="{{ asset('img/logo.jpg') }}" alt="logo Amici d'autore">
                     </a>
                 </div>
-                <div class="col-4">
+                <div class="col-10 text-right">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -44,6 +44,9 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            </li>
                             @guest
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -54,6 +57,12 @@
                                     </li>
                                 @endif
                             @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('books.mybooks') }}">{{ __('My books') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('books.create') }}">{{ __('Insert new book') }}</a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
@@ -75,13 +84,25 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+
+        </div>
 
     </nav>
 
-    <main class="py-4">
+    <main class="py-4 bg-white">
+        <div class="container">
+        @if(session('message'))
+            <div class="alert alert-danger">
+                {{ session('message') }}
+            </div>
+        @endif
+
         @yield('content')
+        </div>
     </main>
 </div>
+<footer>
+    @yield('footer')
+</footer>
 </body>
 </html>

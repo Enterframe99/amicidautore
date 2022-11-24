@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap');
 
 // Variables
 @import 'variables';
@@ -7,9 +8,97 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//Icons
+@import '~bootstrap-icons/font/bootstrap-icons';
 
-.c {
-    min-height: 100vh;
-    background-size: cover !important;
-    background: url(https://i.postimg.cc/ZnHTP71s/aircraft-airplane-boat-1575833.jpg);
+html {
+    background-color: #FAECE2;
 }
+
+.shwimg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #ab8b75;
+    border-color: #ab8b75;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #d7bead;
+    border-color: #d7bead;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle,
+.btn-primary:focus,
+.btn-primary.focus {
+    color: #fff;
+    background-color: #ab8b75;
+    border-color: #ab8b75;
+    box-shadow: 0 0 0 0.1rem rgb(229 213 202);
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+.nopadding-inline-start ul {
+    padding-inline-start: 0 !important;
+}
+
+.card-header {
+    font-size: 1.3rem;
+    background-color:#fdf6f2;
+}
+
+.alert, .card {
+    border-radius: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6, a.h1, a.h2, a.h3, a.h4, a.h5, a.h6, p {
+    font-family: 'Nunito', serif;
+}
+
+body, .form-control {
+    //font-size: 1.1rem;
+}
+
+.drag {
+    cursor: move;
+}
+
+.block_list {
+    border: 2px solid #f5ceb7;
+    background-color: #fefaf854;
+}
+
+@for $i from 0 through 9 {
+    div[data-rowid='#{$i}'] {
+        $percent: calc(100% - (#{$i} * 10%));
+        background-color: rgb(245 206 183 / $percent );
+        padding-top:20px;
+        padding-bottom:20px;
+        border: 5px solid #f5ceb7 !important;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    nav > .container, nav > .container-sm, nav > .container-md, nav > .container-lg, nav > .container-xl,
+    main > .container, main > .container-sm, main > .container-md, main > .container-lg, main > .container-xl {
+        max-width: 1800px;
+    }
+
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 100%;
+    }
+}
+
+

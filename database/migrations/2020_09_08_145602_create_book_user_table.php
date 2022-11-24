@@ -15,13 +15,9 @@ class CreateBookUserTable extends Migration
     {
         Schema::create('book_user', function (Blueprint $table) {
             $table->id();
-            /*$table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->on('users')->references('id'); sostituito da stringa seguente */
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            /*$table->bigInteger('book_id')->unsigned();
-            $table->foreign('book_id')->on('users')->references('id'); sostituito da stringa seguente */
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();    //     https://laravel.com/docs/8.x/migrations#foreign-key-constraints
             $table->foreignId('book_id')->constrained();
-            $table->tinyInteger('order')->unsigned();
+            $table->tinyInteger('order')->unsigned()->nullable();
             $table->timestamps();
         });
     }

@@ -38,9 +38,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function book(){
+    public function books(){
         return $this->belongsToMany(Book::class)
-            ->withPivot('order')
+            ->withPivot(['order', 'quote', 'review', 'related'])  //extra attributo da specificare con withPivot
             ->withTimestamps();
     }
 

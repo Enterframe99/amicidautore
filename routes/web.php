@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
+use App\Models\Book;
+use App\Events\NewBookInserted;
+use App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::resources('/book', \App\Http\Controllers\BookController::class);
+Route::post('/books/cover',  [BookController::class, 'cover'])->name('books.cover');
+Route::put('/books/{id}', [BookController::class, 'update'])->name('books.update');
+Route::get('/books/mybooks', [BookController::class, 'mybooks'])->name('books.mybooks');
+Route::get('/books/create/{related_id?}', [BookController::class, 'create'])->name('books.create');
+Route::patch('/books/updateCustomerSort', [BookController::class, 'updateCustomerSort'])->name('books.updateCustomerSort');
+Route::resource('/books', 'BookController')->except(['create', 'update']);
+
+
+
+Route::get('testEvent', function (){
+    $book = Book::query()->where('title', '=', 'parola del diavolo')->firstOrFail();
+
+    event(new NewBookInserted($book));
+}
+);

@@ -10,6 +10,6 @@ $factory->define(Book::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(6, true),
         'author'=> $faker->name,
-        'image'=> $faker->imageUrl(1000, 1000),
+        'image'=> $faker->image('public/img', 1000, 1000),
     ];
 });

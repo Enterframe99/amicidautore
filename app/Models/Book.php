@@ -7,9 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    public function user(){
+    // per utilizzare metodo CREATE in controller è necessario abilitare i campi scrivibili
+    //(altrimenti utilizzare INSERT/SAVE nel controller che non richiede protezioni)
+    protected $fillable = ['title', 'author', 'image'];
+
+    public function users(){
         return $this->belongsToMany(User::class)
-            ->withPivot('order')
+            ->withPivot(['order', 'quote', 'review', 'related'])  //extra attributo da specificare con withPivot
             ->withTimestamps();
+    }
+
+    public function recap(){
+        //
     }
 }
