@@ -118,15 +118,15 @@ class BookController extends Controller
 
         $bookNumber =   $count + 1;
 
-        // only from show.blade - book already in DB
+        // solo per show.blade - libro già in DB
         $book_id = $request->book_id;
 
-        // from cover.blade - new book, not in DB
+        // da cover.blade - nuovo libro non presente in libreria
         $title = $request->book_title;
         $author =  $request->book_author;
         $url = $request->book_cover;
 
-        if(!$book_id){  // if book not in DB, insert in 'books' table
+        if(!$book_id){  // se non in db, inseriscilo nella tabella books
 
             // https://codebriefly.com/laravel-image-processing-intervention-image-package/
             // http://image.intervention.io/

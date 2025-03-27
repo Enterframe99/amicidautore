@@ -12,7 +12,7 @@
 @import '~bootstrap-icons/font/bootstrap-icons';
 
 html {
-    background-color: #FAECE2;
+    background-color: #a3c8db;
 }
 
 .shwimg {
@@ -22,26 +22,26 @@ html {
     justify-content: center;
 }
 
+button {
+    border-radius: 0 !important;
+}
+
 .btn-primary {
     color: #fff;
-    background-color: #ab8b75;
-    border-color: #ab8b75;
+    background-color: #75919f;
+    border-color: #75919f;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #d7bead;
-    border-color: #d7bead;
+    background-color: #566c77;
+    border-color: #566c77;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active,
-.btn-primary:not(:disabled):not(.disabled).active,
-.show > .btn-primary.dropdown-toggle,
-.btn-primary:focus,
-.btn-primary.focus {
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle, .btn-primary:focus, .btn-primary.focus {
     color: #fff;
-    background-color: #ab8b75;
-    border-color: #ab8b75;
+    background-color: #566c77;
+    border-color: #566c77;
     box-shadow: 0 0 0 0.1rem rgb(229 213 202);
 }
 
@@ -54,8 +54,8 @@ html {
 }
 
 .card-header {
-    font-size: 1.3rem;
-    background-color:#fdf6f2;
+    font-size: 1.2rem;
+    background-color:#a3c8db;
 }
 
 .alert, .card {
@@ -64,6 +64,7 @@ html {
 
 body, h1, h2, h3, h4, h5, h6, a.h1, a.h2, a.h3, a.h4, a.h5, a.h6, p {
     font-family: 'Nunito', serif;
+    color: #2f5264 !important;
 }
 
 body, .form-control {
@@ -75,17 +76,20 @@ body, .form-control {
 }
 
 .block_list {
-    border: 2px solid #f5ceb7;
-    background-color: #fefaf854;
+    border: 2px solid #a3c8db;
+    background-color: #ffffff;
+    padding-top:13px !important;
+    padding-bottom:13px !important;
 }
+
 
 @for $i from 0 through 9 {
     div[data-rowid='#{$i}'] {
-        $percent: calc(100% - (#{$i} * 10%));
-        background-color: rgb(245 206 183 / $percent );
-        padding-top:20px;
-        padding-bottom:20px;
-        border: 5px solid #f5ceb7 !important;
+        $percent: calc(100% - (#{$i} * 7%));
+        background-color: rgb(163 200 219 / $percent );
+        padding-top:10px !important;
+        padding-bottom:10px !important;
+        border: 5px solid #a3c8db !important;
     }
 }
 
@@ -93,7 +97,7 @@ body, .form-control {
 @media (min-width: 1200px) {
     nav > .container, nav > .container-sm, nav > .container-md, nav > .container-lg, nav > .container-xl,
     main > .container, main > .container-sm, main > .container-md, main > .container-lg, main > .container-xl {
-        max-width: 1800px;
+        max-width: 1800px !important;
     }
 
     .container, .container-sm, .container-md, .container-lg, .container-xl {

@@ -2358,6 +2358,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2370,12 +2376,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      booksNew: this.books
+      booksNew: this.books,
+      compact: false,
+      show: 'block',
+      hide: 'none',
+      wdth: '100%',
+      flt: 'none'
     };
   },
   methods: {
     update: function update() {
-      console.log('update!!!!!!!!!!!!!!!');
+      console.log('update!');
       this.booksNew.map(function (book, index) {
         book.pivot.order = index + 1;
       });
@@ -2383,6 +2394,22 @@ __webpack_require__.r(__webpack_exports__);
         booksNew: this.booksNew
       }).then(function (response) {//this.data = response.data.items;
       });
+    },
+    toggle: function toggle() {
+      console.log('toggle');
+      this.compact = !this.compact;
+
+      if (this.show == 'block') {
+        this.show = 'none';
+        this.wdth = 'fit-content';
+        this.flt = 'left';
+        this.hide = 'block';
+      } else {
+        this.show = 'block';
+        this.wdth = '100%';
+        this.flt = 'none';
+        this.hide = 'none';
+      }
     }
   }
 });
@@ -42745,8 +42772,13 @@ var render = function() {
     "draggable",
     _vm._b(
       {
+        style: { width: _vm.wdth },
         attrs: { list: _vm.booksNew, element: "div" },
-        on: { change: _vm.update }
+        on: {
+          change: function($event) {
+            return _vm.update()
+          }
+        }
       },
       "draggable",
       { animation: 300, handle: ".drag" },
@@ -42756,27 +42788,55 @@ var render = function() {
       return _c(
         "div",
         {
-          staticClass: "row mb-3 p-3 block_list",
-          staticStyle: { width: "100%" },
+          staticClass: "row mb-1 p-1 block_list",
+          staticStyle: { "margin-right": "5px" },
+          style: { float: _vm.flt },
           attrs: { "data-rowId": index }
         },
         [
-          _c("div", { staticClass: "col-1 drag" }, [
-            _c("span", { staticStyle: { "font-size": "20px" } }, [
-              _vm._v(_vm._s(book.pivot.order) + " "),
-              _c("i", { staticClass: "bi bi-arrows-expand" })
-            ])
-          ]),
+          _c(
+            "div",
+            { staticClass: "col-1 drag", style: { display: _vm.show } },
+            [
+              _c("span", { staticStyle: { "font-size": "20px" } }, [
+                _vm._v(_vm._s(book.pivot.order) + " "),
+                _c("i", { staticClass: "bi bi-arrows-move" })
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function($event) {
+                      return _vm.toggle()
+                    }
+                  }
+                },
+                [_vm._v(_vm._s("compact"))]
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-10" }, [
-            _c("div", { staticStyle: { float: "left", margin: "0 10px" } }, [
-              _c("a", { attrs: { href: book.id } }, [
-                _c("img", {
-                  staticStyle: { "max-width": "150px" },
-                  attrs: { src: book.image }
-                })
-              ])
-            ]),
+          _c("div", { staticClass: "col-10", style: { display: _vm.show } }, [
+            _c(
+              "div",
+              {
+                staticClass: "nocompact",
+                staticStyle: { float: "left", margin: "0 10px" },
+                style: { display: _vm.show }
+              },
+              [
+                _c("a", { attrs: { href: book.id } }, [
+                  _c("img", {
+                    staticClass: "compact",
+                    staticStyle: { "max-width": "150px" },
+                    attrs: { src: book.image }
+                  })
+                ])
+              ]
+            ),
             _vm._v(" "),
             _c(
               "a",
@@ -42794,16 +42854,61 @@ var render = function() {
             _vm._v(" "),
             _c("div", [
               _vm._v(_vm._s("Review:") + " " + _vm._s(book.pivot.review))
-            ])
+            ]),
+            _vm._v(" "),
+            book.pivot.related != null
+              ? _c("div", [
+                  _vm._v(
+                    _vm._s("Suggested books:") +
+                      " " +
+                      _vm._s(book.pivot.related)
+                  )
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-1" }, [
+          _c("div", { staticClass: "col-1", style: { display: _vm.show } }, [
             _c("a", { attrs: { href: book.id + "/edit" } }, [
               _c("button", { staticClass: "btn btn-primary" }, [
                 _vm._v(_vm._s("EDIT"))
               ])
             ])
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "drag",
+              staticStyle: { width: "fit-content" },
+              style: { display: _vm.hide },
+              attrs: { id: "compact" }
+            },
+            [
+              _c("span", { staticStyle: { "font-size": "20px" } }, [
+                _vm._v(_vm._s(book.pivot.order) + " "),
+                _c("i", { staticClass: "bi bi-arrows-move" })
+              ]),
+              _vm._v(
+                " \n            " +
+                  _vm._s(book.title) +
+                  " - " +
+                  _vm._s(book.author) +
+                  " \n            "
+              ),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function($event) {
+                      return _vm.toggle()
+                    }
+                  }
+                },
+                [_vm._v(_vm._s("expand"))]
+              )
+            ]
+          )
         ]
       )
     }),
@@ -57860,8 +57965,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laragon\www\amicidautore\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\laragon\www\amicidautore\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\amicidautore\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\amicidautore\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
